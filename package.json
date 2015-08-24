@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "scrum_angular",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "Coding exercise about scrum done with angularjs",
+  "repository": "https://github.com/AymenBenAmor/scrumAngular",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
