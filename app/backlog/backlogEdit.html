@@ -1,9 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div class="box box-warning">
+    <div class="box-header with-border">
+        <h3 class="box-title">Task</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+        <form role="form">
+            <!-- text input -->
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="TaskName">
+            </div>
+            <!-- textarea -->
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
 
-</body>
-</html>
+            <div class="form-group">
+                <label>Estimate</label>
+                <input type="text" class="form-control" >Days
+            </div>
+
+            <!-- select -->
+            <div class="form-group">
+                <label>Type</label>
+                <select class="form-control">
+                    <option value="feature">Feature</option>
+                    <option value="bug">Bug</option>
+                </select>
+            </div>
+        </form>
+    </div><!-- /.box-body -->
+</div>

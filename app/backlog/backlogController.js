@@ -19,6 +19,6 @@ angular.module('myApp.backlog', ['ngRoute'])
 .controller('backlogCtrl', ['$scope', 'Backlog', function($scope, Backlog) {
     $scope.sprint = Backlog.query();
 }])
-.controller('backlogEditCtrl', ['$scope', 'Backlog', function($scope, Backlog) {
+.controller('backlogEditCtrl', ['$scope', '$routeParams', 'Backlog', function($scope, $routeParams, Backlog) {
     $scope.backlog = Backlog.get({backlogId: $routeParams.backlogId});
 }]);
