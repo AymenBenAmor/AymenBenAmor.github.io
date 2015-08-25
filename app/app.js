@@ -8,7 +8,8 @@ angular.module('myApp', [
   'myApp.version',
   'sprintServices',
   'backlogServices',
-  'ui.date'
+  'ui.date',
+  'ui.sortable'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/backlog'});
