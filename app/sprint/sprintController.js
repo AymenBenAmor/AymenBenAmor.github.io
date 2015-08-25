@@ -6,9 +6,20 @@ angular.module('myApp.sprint', ['ngRoute'])
     $routeProvider.when('/sprint', {
         templateUrl: 'sprint/sprintList.html',
         controller: 'sprintCtrl'
+    }).when('/sprint:sprintId', {
+        templateUrl: 'sprint/sprintEdit.html',
+        controller: 'sprintEditCtrl'
+    }).when('/sprint/new', {
+        templateUrl: 'sprint/sprintEdit.html',
+        controller: 'sprintEditCtrl'
+    }).otherwise({
+        redirectTo: '/sprint'
     });
 }])
 
-.controller('sprintCtrl', [function () {
-    console.log('test2');
+.controller('sprintCtrl', ['$scope', 'Sprint', function($scope, Sprint) {
+    $scope.sprint = Sprint.query();
+}])
+.controller('sprintEditCtrl', ['$scope', 'Sprint', function($scope, Sprint) {
+    $scope.sprint = Sprint.get({sprintId: $routeParams.sprintId});
 }]);

@@ -5,7 +5,9 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.backlog',
   'myApp.sprint',
-  'myApp.version'
+  'myApp.version',
+  'sprintServices',
+  'backlogServices'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/backlog'});

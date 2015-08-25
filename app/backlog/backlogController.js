@@ -6,9 +6,19 @@ angular.module('myApp.backlog', ['ngRoute'])
     $routeProvider.when('/backlog', {
         templateUrl: 'backlog/backlogList.html',
         controller: 'backlogCtrl'
+    }).when('/backlog:backlogId', {
+        templateUrl: 'backlog/backlogEdit.html',
+        controller: 'backlogEditCtrl'
+    }).when('/backlog:backlogId', {
+        templateUrl: 'backlog/backlogEdit.html',
+        controller: 'backlogEditCtrl'
+    }).otherwise({
+        redirectTo: '/backlog'
     });
 }])
-
-.controller('backlogCtrl', [function () {
-console.log('test');
+.controller('backlogCtrl', ['$scope', 'Backlog', function($scope, Backlog) {
+    $scope.sprint = Backlog.query();
+}])
+.controller('backlogEditCtrl', ['$scope', 'Backlog', function($scope, Backlog) {
+    $scope.backlog = Backlog.get({backlogId: $routeParams.backlogId});
 }]);
