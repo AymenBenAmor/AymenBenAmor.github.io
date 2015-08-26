@@ -14,8 +14,9 @@ angular.module('myApp.sprint', ['ngRoute'])
     });
 }])
 
-.controller('sprintCtrl', ['$scope', 'Sprint', function($scope, Sprint) {
+.controller('sprintCtrl', ['$scope', 'Sprint', 'Backlog', function($scope, Sprint, Backlog) {
     $scope.sprints = Sprint.query();
+    $scope.backlogs = Backlog.query();
 }])
 .controller('sprintEditCtrl', ['$scope', '$routeParams', '$location', 'Sprint',
         function($scope, $routeParams, $location, Sprint) {
@@ -23,7 +24,7 @@ angular.module('myApp.sprint', ['ngRoute'])
         $scope.sprint = Sprint.getSprint({sprintId: $routeParams.sprintId});
     }
     $scope.save = function(){
-        var sprints = window.localStorage.sprints ? JSON.stringify(window.localStorage.sprints) : {};
+        var sprints = window.localStorage.sprints ? JSON.parse(window.localStorage.sprints) : {};
         var nextId = window.localStorage.sprints ? Sprint.query().length : 1;
         if(!$scope.sprint.id){
             $scope.sprint.id = nextId;

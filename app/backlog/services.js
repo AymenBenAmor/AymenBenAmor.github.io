@@ -4,35 +4,17 @@ services.factory('Backlog', ['$resource',
     function () {
         return {
             query: function () {
-                return [
-                    {
-                        id: 1,
-                        name: 'test',
-                        description: 'test',
-                        type: 'feature'
-                    },
-                    {
-                        id: 2,
-                        name: 'test2',
-                        description: 'test2',
-                        type: 'feature'
-                    },
-                    {
-                        id: 3,
-                        name: 'test4',
-                        description: 'test4',
-                        type: 'bug'
-                    }
-                ];
+                if(window.localStorage.backlogs){
+                    return $.map(JSON.parse(window.localStorage.backlogs), function(value) {
+                        return value;
+                    });
+                }else{
+                    return [];
+                }
             },
-            getBacklog: function () {
-                return {
-                    id: 3,
-                    name: 'test4',
-                    description: 'test4',
-                    estimate: 5,
-                    type: 'bug'
-                };
+            getSprint: function (object) {
+                var sprints = JSON.parse(window.localStorage.backlogs);
+                return sprints[object.backlogId];
             }
         };
     }]);

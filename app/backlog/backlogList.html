@@ -16,13 +16,13 @@
             <h3 class="box-title">Backlog</h3>
         </div>
         <div class="box-body" >
-            <button class="btn btn-block btn-primary btn-sm">Create new backlog</button>
+            <a class="btn btn-block btn-primary btn-sm" href="#/backlog/new">Create new backlog</a>
             <br/>
 
             <!-- box for sprint add foreach here -->
             <div class="col-md-12">
-                <p class="text-center" ng-repeat="backlog in backlogs | orderBy:'name'">
-                    <strong><a href="#/backlog:{{backlog.id}}">{{backlog.name}}</a></strong>
+                <p class="text-center"  ng-repeat="backlog in backlogs | orderBy:'name'">
+                    <strong><a href="#/backlog/{{backlog.id}}">{{backlog.name}}/{{backlog.status}}</a></strong>
                 </p>
 
             </div>
