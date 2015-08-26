@@ -14,13 +14,13 @@
             <h3 class="box-title">Sprints</h3>
         </div>
         <div class="box-body" >
-            <button class="btn btn-block btn-primary btn-sm">Create new sprint</button>
+            <a class="btn btn-block btn-primary btn-sm" href="#/sprint/new">Create new sprint</a>
             <br/>
 
             <!-- box for sprint add foreach here -->
             <div class="col-md-12">
                 <p class="text-center" ng-repeat="sprint in sprints | orderBy:'name'">
-                    <strong><a href="#/sprint:{{sprint.id}}">{{sprint.name}}</a></strong>
+                    <strong><a href="#/sprint/{{sprint.id}}">{{sprint.name}}</a></strong>
                 </p>
             </div>
             <!-- endforeach -->
