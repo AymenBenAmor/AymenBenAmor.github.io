@@ -18,8 +18,8 @@ angular.module('myApp.sprint', ['ngRoute'])
 }])
 
 .controller('sprintCtrl', ['$scope', 'Sprint', function($scope, Sprint) {
-    $scope.sprint = Sprint.query();
+    $scope.sprints = Sprint.query();
 }])
 .controller('sprintEditCtrl', ['$scope', '$routeParams', 'Sprint', function($scope, $routeParams, Sprint) {
-    $scope.sprint = Sprint.get({sprintId: $routeParams.sprintId});
+    $scope.sprint = Sprint.getSprint();
 }]);

@@ -5,7 +5,6 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Sprint</a></li>
         <li class="active">Sprints</li>
     </ol>
 </section>
@@ -20,16 +19,9 @@
 
             <!-- box for sprint add foreach here -->
             <div class="col-md-12">
-                <p class="text-center">
-                    <strong>Sprint 1</strong>
+                <p class="text-center" ng-repeat="sprint in sprints | orderBy:'name'">
+                    <strong><a href="#/sprint:{{sprint.id}}">{{sprint.name}}</a></strong>
                 </p>
-                <div class="progress-group">
-                    <span class="progress-text">Sprint 1</span>
-                    <div class="progress sm">
-                        <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
-                    </div>
-                </div><!-- /.progress-group -->
-
             </div>
             <!-- endforeach -->
         </div><!-- /.box-body -->

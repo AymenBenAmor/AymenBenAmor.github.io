@@ -10,12 +10,12 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Sprint Name">
+                        <input type="text" class="form-control" placeholder="Sprint Name" ng-model="sprint.name">
                     </div>
                     <!-- textarea -->
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" ng-model="sprint.description" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Start date:</label>
@@ -25,7 +25,7 @@
                                 <i class="fa fa-calendar"></i>
                             </div>
                             <input type="text" ui-date="dateOptions" name="DateOfBirth"
-                                   class="form-control pull-right active" id="start_date">
+                                   class="form-control pull-right active" ng-model="sprint.startDate" id="start_date">
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -36,7 +36,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" ui-date="dateOptions" name="DateOfBirth"
+                            <input type="text" ui-date="dateOptions" ng-model="sprint.endDate" name="DateOfBirth"
                                    class="form-control pull-right active" id="end_date">
                         </div>
                         <!-- /.input group -->

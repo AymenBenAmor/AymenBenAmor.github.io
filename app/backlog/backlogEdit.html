@@ -7,23 +7,23 @@
             <!-- text input -->
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" placeholder="TaskName">
+                <input type="text" class="form-control" placeholder="TaskName" ng-model="backlog.name">
             </div>
             <!-- textarea -->
             <div class="form-group">
                 <label>Description</label>
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" ng-model="backlog.description" rows="3"></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" >
                 <label>Estimate</label>
-                <input type="text" class="form-control" >Days
+                <input type="text" ng-model="backlog.estimate" class="form-control" >Days
             </div>
 
             <!-- select -->
-            <div class="form-group">
+            <div class="form-group" >
                 <label>Type</label>
-                <select class="form-control">
+                <select ng-model="backlog.type" class="form-control">
                     <option value="feature">Feature</option>
                     <option value="bug">Bug</option>
                 </select>
