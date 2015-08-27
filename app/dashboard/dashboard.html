@@ -1,0 +1,31 @@
+<section class="content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-edit"></i>
+                    <h3 class="box-title">Dashboard</h3>
+                </div>
+                <div class="box-body pad table-responsive">
+                    <p>You can drag & drop your tasks</p>
+                    <table class="table table-bordered text-center">
+                        <tbody>
+                            <tr>
+                            <th>Sprints</th>
+                            <th>TO DO</th>
+                            <th>In progress</th>
+                            <th>Done</th>
+                        </tr>
+                        <tr ng-repeat="sprint in sprints track by $index | orderBy:'name'" >
+                            <td> {{sprint.name}} </td>
+                            <td > <ul class="to_do tasks_list" ui-sortable="sortableOptions" ng-model="sprint.backlogs" style="height: 50px;"><li ng-repeat="backlog in sprint.backlogs  | filter:query.status | orderBy:'name' "><span class="task">{{backlog.name}}</span></li> </ul></td>
+                            <td> <ul class="in_progress tasks_list" ui-sortable="sortableOptions" ng-model="sprint.backlogs" style="height: 50px;"><li ng-repeat="backlog in sprint.backlogs | filter:'in_progress' | orderBy:'name' "><span class="task">{{backlog.name}}</span></li></ul></td>
+                            <td> <ul class="done tasks_list" ui-sortable="sortableOptions" ng-model="sprint.backlogs" style="height: 50px;"><li ng-repeat="backlog in sprint.backlogs | filter:'done' | orderBy:'name' "><span class="task">{{backlog.name}}</span></li></ul></td>
+                        </tr>
+                        </tbody></table>
+                </div><!-- /.box -->
+            </div>
+        </div><!-- /.col -->
+    </div><!-- ./row -->
+</section>

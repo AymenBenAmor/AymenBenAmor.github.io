@@ -22,6 +22,7 @@ angular.module('myApp.backlog', ['ngRoute'])
                 $scope.backlog = Backlog.getBacklog({backlogId: $routeParams.backlogId});
             }
             $scope.save = function(){
+                $scope.backlog.status = 'TO DO';
                 var backlogs = window.localStorage.backlogs ? JSON.parse(window.localStorage.backlogs) : {};
                 var nextId = window.localStorage.backlogs ? Backlog.query().length + 1 : 1;
                 if(!$scope.backlog.id){

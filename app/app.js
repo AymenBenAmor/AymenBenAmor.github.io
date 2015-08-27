@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.backlog',
   'myApp.sprint',
+  'myApp.dashboard',
   'sprintServices',
   'backlogServices',
   'ui.date',

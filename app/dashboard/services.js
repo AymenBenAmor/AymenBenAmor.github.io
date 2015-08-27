@@ -12,17 +12,6 @@ services.factory('Sprint', [
                     return [];
                 }
             },
-            queryStartedSprints: function () {
-                if(window.localStorage.sprints){
-                    return $.map(JSON.parse(window.localStorage.sprints), function(value) {
-                        return value;
-                    }).filter(function(item){
-                      return item.status !== 'completed';
-                    });
-                }else{
-                    return [];
-                }
-            },
             getSprint: function (object) {
                 var sprints = JSON.parse(window.localStorage.sprints);
                 return sprints[object.sprintId];

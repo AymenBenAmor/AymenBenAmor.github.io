@@ -16,7 +16,6 @@ angular.module('myApp.sprint', ['ngRoute'])
 
 .controller('sprintCtrl', ['$scope', 'Sprint', 'Backlog', function($scope, Sprint, Backlog) {
     $scope.sprints = Sprint.query();
-    $scope.dragging = false;
     $scope.sortableOptions = {
         connectWith: '.sprints_list',
         update: function(e, ui){
@@ -27,6 +26,10 @@ angular.module('myApp.sprint', ['ngRoute'])
         }
     };
     $scope.backlogs = Backlog.queryNonAssignedBacklogs();
+    $scope.startSprint = function(sprint,status){
+      sprint.status = status;
+      Sprint.setSprint({sprintId: sprint.id, sprint: sprint});
+    };
 }])
 .controller('sprintEditCtrl', ['$scope', '$routeParams', '$location', 'Sprint',
         function($scope, $routeParams, $location, Sprint) {
