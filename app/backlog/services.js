@@ -12,6 +12,9 @@ services.factory('Backlog', ['$resource',
                     return [];
                 }
             },
+            getBacklogsObject: function () {
+                return window.localStorage.backlogs ? JSON.parse(window.localStorage.backlogs) : {};
+            },
             queryNonAssignedBacklogs: function () {
               if(window.localStorage.backlogs){
                 return $.map(JSON.parse(window.localStorage.backlogs), function(value) {
@@ -31,6 +34,9 @@ services.factory('Backlog', ['$resource',
                 var backlogs = JSON.parse(window.localStorage.backlogs);
                 backlogs[object.backlogId] = object.backlog;
                 window.localStorage.backlogs =  JSON.stringify(backlogs);
+            },
+            setBacklogs: function (backlogs) {
+              window.localStorage.setItem('backlogs', JSON.stringify(backlogs));
             }
         };
     }]);

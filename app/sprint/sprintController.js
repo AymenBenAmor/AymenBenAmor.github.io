@@ -37,7 +37,7 @@ angular.module('myApp.sprint', ['ngRoute'])
         $scope.sprint = Sprint.getSprint({sprintId: $routeParams.sprintId});
     }
     $scope.save = function(){
-        var sprints = window.localStorage.sprints ? JSON.parse(window.localStorage.sprints) : {};
+        var sprints = Sprint.getSprintsObject();
         var nextId = window.localStorage.sprints ? Sprint.query().length + 1 : 1;
         if(!$scope.sprint.id){
             $scope.sprint.id = nextId;
@@ -46,7 +46,7 @@ angular.module('myApp.sprint', ['ngRoute'])
             $scope.sprint.backlogs = [];
         }
         sprints[$scope.sprint.id] = $scope.sprint;
-        window.localStorage.setItem('sprints', JSON.stringify(sprints));
+        Sprint.setSprints(sprints);
         $location.path('/sprint');
     };
 }]);

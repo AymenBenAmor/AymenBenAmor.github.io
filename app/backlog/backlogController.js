@@ -23,13 +23,13 @@ angular.module('myApp.backlog', ['ngRoute'])
             }
             $scope.save = function(){
                 $scope.backlog.status = 'TO DO';
-                var backlogs = window.localStorage.backlogs ? JSON.parse(window.localStorage.backlogs) : {};
+                var backlogs = Backlog.getBacklogsObject();
                 var nextId = window.localStorage.backlogs ? Backlog.query().length + 1 : 1;
                 if(!$scope.backlog.id){
                     $scope.backlog.id = nextId;
                 }
                 backlogs[$scope.backlog.id] = $scope.backlog;
-                window.localStorage.setItem('backlogs', JSON.stringify(backlogs));
+                Backlog.setBacklogs(backlogs);
                 $location.path('/backlog');
             };
 }]);

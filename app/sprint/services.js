@@ -12,6 +12,9 @@ services.factory('Sprint', [
                     return [];
                 }
             },
+            getSprintsObject: function () {
+              return window.localStorage.sprints ? JSON.parse(window.localStorage.sprints) : {};
+            },
             queryStartedSprints: function () {
                 if(window.localStorage.sprints){
                     return $.map(JSON.parse(window.localStorage.sprints), function(value) {
@@ -31,6 +34,9 @@ services.factory('Sprint', [
                 var sprints = JSON.parse(window.localStorage.sprints);
                 sprints[object.sprintId] = object.sprint;
                 window.localStorage.sprints =  JSON.stringify(sprints);
+            },
+            setSprints: function(sprints){
+              window.localStorage.setItem('sprints', JSON.stringify(sprints));
             }
         };
     }]);
