@@ -20,11 +20,16 @@
             <br/>
 
             <!-- box for sprint add foreach here -->
-            <div class="col-md-12">
-                <p class="text-center"  ng-repeat="backlog in backlogs | orderBy:'name'">
-                    <strong><a href="#/backlog/{{backlog.id}}">{{backlog.name}}/{{backlog.status}}</a></strong>
-                </p>
-
+            <div class="col-md-12" ng-repeat="backlog in backlogs | orderBy:'name'">
+                <div class="col-md-12 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text"><a href="#/backlog/{{backlog.id}}">{{backlog.name}}/{{backlog.status}}</a></span>
+                            <span class="info-box-number">{{backlog.description}}</span>
+                        </div><!-- /.info-box-content -->
+                    </div><!-- /.info-box -->
+                </div>
             </div>
             <!-- endforeach -->
         </div><!-- /.box-body -->
