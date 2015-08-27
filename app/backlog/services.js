@@ -12,9 +12,25 @@ services.factory('Backlog', ['$resource',
                     return [];
                 }
             },
-            getSprint: function (object) {
-                var sprints = JSON.parse(window.localStorage.backlogs);
-                return sprints[object.backlogId];
+            queryNonAssignedBacklogs: function () {
+              if(window.localStorage.backlogs){
+                return $.map(JSON.parse(window.localStorage.backlogs), function(value) {
+                  return value;
+                }).filter(function(item){
+                  return item.sprint !== 'chosen';
+                });
+              }else{
+                return [];
+              }
+            },
+            getBacklog: function (object) {
+                var backlogs = JSON.parse(window.localStorage.backlogs);
+                return backlogs[object.backlogId];
+            },
+            setBacklog: function (object) {
+                var backlogs = JSON.parse(window.localStorage.backlogs);
+                backlogs[object.backlogId] = object.backlog;
+                window.localStorage.backlogs =  JSON.stringify(backlogs);
             }
         };
     }]);

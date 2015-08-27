@@ -19,7 +19,7 @@ angular.module('myApp.backlog', ['ngRoute'])
 .controller('backlogEditCtrl', ['$scope', '$routeParams', '$location','Backlog',
         function($scope, $routeParams, $location, Backlog) {
             if($routeParams.backlogId !== 'new'){
-                $scope.backlog = Backlog.getSprint({backlogId: $routeParams.backlogId});
+                $scope.backlog = Backlog.getBacklog({backlogId: $routeParams.backlogId});
             }
             $scope.save = function(){
                 var backlogs = window.localStorage.backlogs ? JSON.parse(window.localStorage.backlogs) : {};
