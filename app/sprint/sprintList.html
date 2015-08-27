@@ -19,14 +19,13 @@
 
             <!-- box for sprint add foreach here -->
             <div class="col-md-12"  >
-                <p class="text-center" ng-repeat="sprint in sprints | orderBy:'name'">
+                <div class="text-center" ng-repeat="sprint in sprints | orderBy:'name'">
                     <strong><a href="#/sprint/{{sprint.id}}">{{sprint.name}}</a></strong>
                     <ul ui-sortable="sortableOptions" class="sprints_list" ng-model="sprint.backlogs" style="height: 50px">
                         <li ng-repeat="backlog in sprint.backlogs">{{backlog.name}}</li>
                     </ul>
-                </p>
+                </div>
             </div>
-            <!-- endforeach -->
         </div><!-- /.box-body -->
     </div>
 </section>

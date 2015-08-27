@@ -20,8 +20,6 @@ angular.module('myApp.sprint', ['ngRoute'])
     $scope.sortableOptions = {
         connectWith: '.sprints_list'
     };
-
-
     $scope.backlogs = Backlog.query();
 }])
 .controller('sprintEditCtrl', ['$scope', '$routeParams', '$location', 'Sprint',
