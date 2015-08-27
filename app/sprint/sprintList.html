@@ -18,9 +18,12 @@
             <br/>
 
             <!-- box for sprint add foreach here -->
-            <div class="col-md-12">
-                <p class="text-center" ui-sortable ng-repeat="sprint in sprints | orderBy:'name'">
+            <div class="col-md-12"  >
+                <p class="text-center" ng-repeat="sprint in sprints | orderBy:'name'">
                     <strong><a href="#/sprint/{{sprint.id}}">{{sprint.name}}</a></strong>
+                    <ul ui-sortable="sortableOptions" class="sprints_list" ng-model="sprint.backlogs" style="height: 50px">
+                        <li ng-repeat="backlog in sprint.backlogs">{{backlog.name}}</li>
+                    </ul>
                 </p>
             </div>
             <!-- endforeach -->
@@ -30,13 +33,10 @@
 <section class="content col-lg-5" >
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Backlog</h3>
+            <h3 class="box-title">Backlog List</h3>
         </div>
-        <div class="box-body" >
-           backlog list
-            <p class="text-center" ui-sortable ng-repeat="backlog in backlogs | orderBy:'name'">
-                <strong>{{backlog.name}}/{{backlog.status}}</strong>
-            </p>
-        </div><!-- /.box-body -->
+        <ul ui-sortable="sortableOptions" ng-model="backlogs">
+            <li ng-repeat="backlog in backlogs | orderBy:'name'">{{backlog.name}}/{{backlog.status}}</li>
+        </ul>
     </div>
 </section><!-- /.content -->

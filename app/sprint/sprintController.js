@@ -16,6 +16,12 @@ angular.module('myApp.sprint', ['ngRoute'])
 
 .controller('sprintCtrl', ['$scope', 'Sprint', 'Backlog', function($scope, Sprint, Backlog) {
     $scope.sprints = Sprint.query();
+    $scope.dragging = false;
+    $scope.sortableOptions = {
+        connectWith: '.sprints_list'
+    };
+
+
     $scope.backlogs = Backlog.query();
 }])
 .controller('sprintEditCtrl', ['$scope', '$routeParams', '$location', 'Sprint',
@@ -25,9 +31,12 @@ angular.module('myApp.sprint', ['ngRoute'])
     }
     $scope.save = function(){
         var sprints = window.localStorage.sprints ? JSON.parse(window.localStorage.sprints) : {};
-        var nextId = window.localStorage.sprints ? Sprint.query().length : 1;
+        var nextId = window.localStorage.sprints ? Sprint.query().length + 1 : 1;
         if(!$scope.sprint.id){
             $scope.sprint.id = nextId;
+        }
+        if(!$scope.sprint.backlogs){
+            $scope.sprint.backlogs = [];
         }
         sprints[$scope.sprint.id] = $scope.sprint;
         window.localStorage.setItem('sprints', JSON.stringify(sprints));
