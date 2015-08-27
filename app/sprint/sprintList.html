@@ -28,7 +28,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text"><strong><a href="#/sprint/{{sprint.id}}">{{sprint.name}}</a></strong></span>
                             <span class="info-box-number">
-                                <ul ui-sortable="sortableOptions" class="sprints_list" ng-model="sprint.backlogs" style="min-height: 50px; display:inline-block;list-style-type: none;">
+                                <ul ui-sortable="sortableOptions" class="sprints_list" ng-model="sprint.backlogs" style="min-height: 50px; display:inline-block;list-style-type: none;min-width: 400px;">
                                     <li ng-repeat="backlog in sprint.backlogs">
                                         <div class="col-md-12" >
                                             <div class="col-md-12 col-sm-6 col-xs-12">
@@ -57,8 +57,21 @@
         <div class="box-header with-border">
             <h3 class="box-title">Backlog List</h3>
         </div>
-        <ul ui-sortable="sortableOptions" ng-model="backlogs">
-            <li ng-repeat="backlog in backlogs | orderBy:'name'">{{backlog.name}}/{{backlog.status}}</li>
+        <ul ui-sortable="sortableOptions" ng-model="backlogs" style="list-style-type: none;display:inline-block;">
+
+            <li ng-repeat="backlog in backlogs | orderBy:'name'">
+                <div class="col-md-12" >
+                    <div class="col-md-12 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text"><a href="#/backlog/{{backlog.id}}">{{backlog.name}}/{{backlog.status}}</a></span>
+                                <span class="info-box-number">{{backlog.description}}</span>
+                            </div><!-- /.info-box-content -->
+                        </div><!-- /.info-box -->
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 </section><!-- /.content -->
